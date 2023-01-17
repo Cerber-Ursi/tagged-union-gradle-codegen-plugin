@@ -1,25 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.6.20"
-    id("com.gradle.plugin-publish") version "1.0.0"
+    kotlin("jvm") version "1.6.20" apply false
+    id("com.gradle.plugin-publish") version "1.0.0" apply false
 }
 
-group = "ru.cerbe.gradle"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+subprojects {
+    group = "ru.cerbe.gradle"
+    version = "1.0-SNAPSHOT"
 }
